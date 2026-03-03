@@ -1,0 +1,27 @@
+button{
+    display: flex;
+    align-items: center;
+    background-color: #19b5ff;
+    border-radius: 30px;
+    color: white;
+    font-size: 20px;
+    padding: 10px 20px;
+    border: #1a4052 solid 6px;
+    cursor: pointer;
+}
+.body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.destaque{
+    font-weight: bold;
+    color: white;
+    background-color: red;
+    padding: 20px 50px;
+    text-align: center;
+    border-radius: 70%;
+    margin-top: 100px;
+    font-size: 50px;
+}
