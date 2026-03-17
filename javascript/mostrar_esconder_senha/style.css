@@ -1,0 +1,26 @@
+body{
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#senha{
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 15px;
+    border: none;
+    height: 20px;
+    width: 200px;
+}
+
+#btn{
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 15px;
+    border: none;
+    position: absolute;
+    right: 650px;
+    cursor: pointer;
+}
