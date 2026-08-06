@@ -5,13 +5,13 @@ class Produto{
         this.estoque = estoque;
     }
 
-    vender(quantidade){
-        this.estoque -= quantidade;
+    vender(estoque){
+        this.estoque -= estoque;
         return `Produto ${this.nome} vendido com sucesso`;
     }
 
-    repor(quantidade){
-        this.estoque += quantidade;
+    repor(estoque){
+        this.estoque += estoque;
         return `Produto ${this.nome} reposto com sucesso`;
     }
 
