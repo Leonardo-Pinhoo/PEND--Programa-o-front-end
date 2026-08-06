@@ -1,0 +1,189 @@
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+.container {
+    margin: 50px auto;
+    padding: 20px;
+    width: 50%;
+    height: 700px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+h1{
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+input{
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button{
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #45a049;
+}
+
+.container:hover{
+    background-color: #f5f5f5;
+} */
+
+
+/* ===== Reset básico ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --brand: #2563eb;
+  --brand-dark: #1d4ed8;
+  --danger: #dc2626;
+  --danger-dark: #b91c1c;
+  --bg: #eef2f7;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --radius: 14px;
+}
+
+/* ===== Página ===== */
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  background: linear-gradient(160deg, #dbeafe 0%, var(--bg) 45%, #f8fafc 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  color: var(--text);
+}
+
+/* ===== Card ===== */
+.container {
+  background: var(--card);
+  width: 100%;
+  max-width: 400px;
+  padding: 36px 32px;
+  border-radius: var(--radius);
+  box-shadow: 0 20px 45px -15px rgba(15, 23, 42, 0.25);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ===== Título ===== */
+#titulo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+#titulo::after {
+  content: "";
+  display: block;
+  width: 54px;
+  height: 4px;
+  margin: 10px auto 0;
+  border-radius: 999px;
+  background: var(--brand);
+}
+
+/* ===== Inputs ===== */
+input {
+  width: 100%;
+  padding: 13px 14px;
+  font-size: 0.95rem;
+  color: var(--text);
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+input::placeholder {
+  color: var(--muted);
+}
+
+input:focus {
+  outline: none;
+  background: #ffffff;
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* ===== Botões ===== */
+button {
+  width: 100%;
+  padding: 13px 16px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.05s, background 0.2s, box-shadow 0.2s;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+#depositar {
+  background: var(--brand);
+  box-shadow: 0 8px 18px -8px rgba(37, 99, 235, 0.6);
+}
+
+#depositar:hover {
+  background: var(--brand-dark);
+}
+
+#sacar {
+  background: var(--danger);
+  box-shadow: 0 8px 18px -8px rgba(220, 38, 38, 0.6);
+}
+
+#sacar:hover {
+  background: var(--danger-dark);
+}
+
+/* ===== Mensagem de resultado ===== */
+#msgResultado {
+  margin-top: 6px;
+  padding: 12px 14px;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--muted);
+  background: #f1f5f9;
+  border-radius: 10px;
+  min-height: 20px;
+}
