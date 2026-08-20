@@ -24,15 +24,20 @@ class Produtos{
         const mostrar = document.querySelector("#mostrar");
         mostrar.innerHTML = "";
 
-        this.produtos.forEach(produto => {
+        this.produtos.forEach((produto, i) => {
             mostrar.innerHTML += `
             <p>Nome: ${produto.nome}</p>
             <p>Preço: R$ ${produto.preco}</p>
             <p>Categoria: ${produto.categoria}</p>
             <p>Desconto: ${produto.desconto}%</p>
-            <p>Preço novo: R$ ${produto.aplicarDesconto ()}</p>
+            <p>Preço novo: R$ ${produto.aplicarDesconto()}</p>
+            <button onclick="produtos.excluirProduto(${i})">EXCLUIR</button>
         `;
         })
+    }
+    excluirProduto(i){
+        this.produtos.splice(i, 1)
+        this.exibir()
     }
 }
 const cadastrar = document.querySelector("#btnCadastrar");
