@@ -1,25 +1,26 @@
 class Produto {
-    constructor(nome, preco, categoria, desconto){
+    constructor(nome, preco, categoria, desconto) {
         this.nome = nome;
         this.preco = Number(preco);
         this.categoria = categoria;
         this.desconto = Number(desconto);
     }
 
-    aplicarDesconto(){
+    aplicarDesconto() {
         let precoNovo = this.preco - (this.preco * (this.desconto / 100));
         return precoNovo;
     }
 
 }
-class Produtos{
-    constructor(){
+class Produtos {
+    constructor() {
         this.produtos = []
     }
-    adicionarProduto(produto){
+    adicionarProduto(produto) {
         this.produtos.push(produto)
+        localStorage.setItem("produtos", JSON.stringify(this.produtos))
     }
-    exibir(){
+    exibir() {
 
         const mostrar = document.querySelector("#mostrar");
         mostrar.innerHTML = "";
@@ -35,14 +36,28 @@ class Produtos{
         `;
         })
     }
-    excluirProduto(i){
+    excluirProduto(i) {
         this.produtos.splice(i, 1)
         this.exibir()
+        localStorage.setItem("produtos", JSON.stringify(this.produtos))
+    }
+    carregarProduto() {
+        const dados = localStorage.getItem("produtos");
+        if (dados) {
+            const produtosSalvos = JSON.parse(dados);
+
+            produtosSalvos.forEach(p => {
+                const produto = new Produto(p.nome, p.preco, p.categoria, p.desconto);
+                this.produtos.push(produto);
+            });
+
+            this.exibir();
+        }
     }
 }
 const cadastrar = document.querySelector("#btnCadastrar");
 const produtos = new Produtos()
-cadastrar.addEventListener("click", function(){
+cadastrar.addEventListener("click", function () {
     const nome = document.querySelector("#nome").value;
     const preco = document.querySelector("#preco").value;
     const categoria = document.querySelector("#categoria").value;
@@ -54,3 +69,4 @@ cadastrar.addEventListener("click", function(){
     console.log(produtos)
     produtos.exibir();
 });
+produtos.carregarProduto()
