@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-color: aqua;
+}
+
+body {
+    position: relative;
+    min-height: 120vh;
+}
+
+#mensagem {
+    text-align: center;
+    justify-content: center;
+}
+#pou_div img {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+#pou_div {
+    display: flex;
+    justify-self: center;
+    top: 35%;
+    position: absolute;
+}
+
+#comida_div img {
+    width: 100px;
+    height: 100px;
+}
+
+/* espalhando cada comida pela tela */
+.pizza {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+}
+
+.hamburguer {
+    position: absolute;
+    top: 20%;
+    right: 10%;
+}
+
+.coca {
+    position: absolute;
+    top: 60%;
+    left: 15%;
+}
+
+.cuscuz {
+    position: absolute;
+    bottom: 10%;
+    right: 20%;
+}
+
+.limonada {
+    position: absolute;
+    top: 40%;
+    right: 5%;
+}
