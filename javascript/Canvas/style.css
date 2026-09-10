@@ -1,0 +1,11 @@
+#canvas{
+    border: 2px dotted black;
+    display: flex;
+    justify-self: center;
+    align-self: center;
+}
+h1{
+    display: flex;
+    justify-self: center;
+    align-self: center;
+}
