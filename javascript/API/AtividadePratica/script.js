@@ -1,20 +1,30 @@
 const salvos = document.querySelector("#salvos");
+const canvas = document.querySelector("#canvas");
 let latitudeAtual, longitudeAtual;
 
-function salvarPonto(){
+function salvarPonto(foto){
     const agora = new Date();
     const dados = {
         latitude: latitudeAtual,
         longitude: longitudeAtual,
         data: agora.toLocaleDateString('pt-BR'),
         hora: agora.toLocaleTimeString('pt-BR'),
+        foto: foto,
     }
     const registros = JSON.parse(localStorage.getItem("registros_ponto")) || [];
     registros.push(dados);
     localStorage.setItem("registros_ponto", JSON.stringify(registros));
+
     const item = document.createElement("li");
     item.textContent = `Ponto: ${dados.data} às ${dados.hora}`;
+
+    const imagem = document.createElement("img");
+    imagem.src = dados.foto;
+    imagem.width = 300;
+    imagem.height = 300;
+
     salvos.appendChild(item);
+    salvos.appendChild(imagem);
 }
 
 function mostrarSalvos(){
@@ -22,9 +32,22 @@ function mostrarSalvos(){
     salvos.innerHTML = "";
     registros.forEach((dados) => {
         const item = document.createElement("li");
+        const foto = document.createElement("img");
+        foto.src = dados.foto;
+        foto.width = 300;
+        foto.height = 300;
         item.textContent = `Ponto: ${dados.data} às ${dados.hora}`;
         salvos.appendChild(item);
+        salvos.appendChild(foto);
     });
+}
+
+function tirarFoto(){
+    const contexto = canvas.getContext("2d");
+    canvas.width = videoElement.videoWidth;
+    canvas.height = videoElement.videoHeight;
+    contexto.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+    return canvas.toDataURL("image/png");
 }
 
 navigator.geolocation.getCurrentPosition(
@@ -61,9 +84,9 @@ navigator.mediaDevices.getUserMedia({
         console.log("erro ao acessar a camera", erro);
     });
 
-// ao carregar a página, já mostra o histórico salvo anteriormente
 mostrarSalvos();
 
 btnFotografar.addEventListener("click", function () {
-    salvarPonto();
+    const foto = tirarFoto();
+    salvarPonto(foto);
 });
